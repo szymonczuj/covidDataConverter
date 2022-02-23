@@ -11,7 +11,7 @@ today = datetime.datetime.now()
 fileName = "Conf" + str(today.strftime("%d")) + str(today.strftime("%m")) + str(today.strftime("%y")) + ".m"
 
 inputData = "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv"
-outputData = "C:/Users/Szymon/Dysk Google/Studia/Magisterskie/Magisterka/M-Files/" + fileName #Path to m-file
+outputData = "C:/PATH/TO/M-FILES/DIRECTORY/" + fileName #Path to m-file
 
 with closing(requests.get(inputData, stream=True)) as csvfile:
     reader = csv.reader(codecs.iterdecode(csvfile.iter_lines(), 'utf-8'))
@@ -29,7 +29,7 @@ print("Output Matrix Size: [" + str(totalColumns) + "]x[" + str(totalRows) + "]"
 confCases = "Conf=["
 
 for row in rows:
-    #if row[1] == "Antarctica" or row[1] == "Winter Olympics 2022": #Statement for skipping rows if nto needed
+    #if row[1] == "Antarctica" or row[1] == "Winter Olympics 2022": #Statement for skipping rows if not needed
     #    print("Skipping: " + row[1] + " " +  row[0])
     #    continue
     print("Processing: " + row[1] + " " +  row[0])
